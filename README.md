@@ -100,8 +100,23 @@ ChatApp is a real-time chat application featuring individual and group chats. Bu
 For more details on API endpoints, refer to the documentation in the backend routes folder.
 
 ## Output
-https://private-user-images.githubusercontent.com/116192552/458300319-c33ffe11-06b2-4181-a7ae-f9f7548d8987.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTA3NTcyMjUsIm5iZiI6MTc1MDc1NjkyNSwicGF0aCI6Ii8xMTYxOTI1NTIvNDU4MzAwMzE5LWMzM2ZmZTExLTA2YjItNDE4MS1hN2FlLWY5Zjc1NDhkODk4Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjI0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYyNFQwOTIyMDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mYzUxNmU1YzRjNzVkZTQ4ZTgzMzdiMTEwODcwYzI4MzI4YmI3M2NiMzgxZWY5YmQzY2Q2ODQzNWEyNzM5ZDZiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.VhaMG3NN4SD3SGwEubtq9hNWaEIBu8cgqoMYfzIcX9w
+![Image](https://github.com/user-attachments/assets/c33ffe11-06b2-4181-a7ae-f9f7548d8987)
+_Login Page_
 
+![Image](https://github.com/user-attachments/assets/1b38def6-78e2-4400-b7ad-5bbf4a64ebd1)
+_Signup Page_
+
+![Image](https://github.com/user-attachments/assets/5cb19c7e-cac6-4c26-a85c-42a9b10dc593)
+_Chat between two users_
+
+![Image](https://github.com/user-attachments/assets/d91f12ca-feb7-407f-a21c-fbd3a9503584)
+_Searching a user_
+
+![Image](https://github.com/user-attachments/assets/76406d3e-05e7-4aee-be15-c5f4a8011a06)
+_Creating a group chat_
+
+![Image](https://github.com/user-attachments/assets/f87a565f-9dfc-44bc-a5a8-d555c9f98311)
+_Chat in the group_
 
 
 ## Troubleshooting
