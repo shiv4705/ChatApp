@@ -103,14 +103,6 @@ For more details on API endpoints, refer to the documentation in the backend rou
 
 Below are some screenshots of the ChatApp in action:
 
-![Login Screen](./screenshots/login-screen.png)
-_The login screen where users can sign in or register._
-
-![Chat Interface](./screenshots/chat-interface.png)
-_The chat interface demonstrating individual and group chat functionalities._
-
-![Group Info Modal](./screenshots/group-info-modal.png)
-_The group info modal that displays group details and members._
 
 ## Troubleshooting
 
