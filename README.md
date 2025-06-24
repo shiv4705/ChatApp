@@ -107,7 +107,7 @@ _Login Page_
 _Signup Page_
 
 ![Image](https://github.com/user-attachments/assets/5cb19c7e-cac6-4c26-a85c-42a9b10dc593)
-_Chat between two users_
+_Chats between two users_
 
 ![Image](https://github.com/user-attachments/assets/d91f12ca-feb7-407f-a21c-fbd3a9503584)
 _Searching a user_
@@ -116,7 +116,7 @@ _Searching a user_
 _Creating a group chat_
 
 ![Image](https://github.com/user-attachments/assets/f87a565f-9dfc-44bc-a5a8-d555c9f98311)
-_Chat in the group_
+_Chats of the group_
 
 
 ## Troubleshooting
