@@ -99,18 +99,25 @@ ChatApp is a real-time chat application featuring individual and group chats. Bu
 
 For more details on API endpoints, refer to the documentation in the backend routes folder.
 
-## Screenshots
+## Output
+![Image](https://github.com/user-attachments/assets/c33ffe11-06b2-4181-a7ae-f9f7548d8987)
+_Login Page_
 
-Below are some screenshots of the ChatApp in action:
+![Image](https://github.com/user-attachments/assets/1b38def6-78e2-4400-b7ad-5bbf4a64ebd1)
+_Signup Page_
 
-![Login Screen](./screenshots/login-screen.png)
-_The login screen where users can sign in or register._
+![Image](https://github.com/user-attachments/assets/5cb19c7e-cac6-4c26-a85c-42a9b10dc593)
+_Chats between two users_
 
-![Chat Interface](./screenshots/chat-interface.png)
-_The chat interface demonstrating individual and group chat functionalities._
+![Image](https://github.com/user-attachments/assets/d91f12ca-feb7-407f-a21c-fbd3a9503584)
+_Searching a user_
 
-![Group Info Modal](./screenshots/group-info-modal.png)
-_The group info modal that displays group details and members._
+![Image](https://github.com/user-attachments/assets/76406d3e-05e7-4aee-be15-c5f4a8011a06)
+_Creating a group chat_
+
+![Image](https://github.com/user-attachments/assets/f87a565f-9dfc-44bc-a5a8-d555c9f98311)
+_Chats of the group_
+
 
 ## Troubleshooting
 
