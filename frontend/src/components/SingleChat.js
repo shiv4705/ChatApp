@@ -15,13 +15,14 @@ import { ChatState } from "../Context/ChatProvider";
 import { getSender, getSenderFull } from "../config/ChatLogics";
 import ProfileModal from "./miscellaneous/ProfileModal";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
-import GroupInfoModal from "./miscellaneous/GroupInfoModal"; // new import
+import GroupInfoModal from "./miscellaneous/GroupInfoModal";
 import ScrollableChat from "./ScrollableChat";
 import "./styles.css";
 import io from "socket.io-client";
 
-const ENDPOINT = "http://localhost:5000"; // your backend endpoint
-var socket, selectedChatCompare;
+const ENDPOINT = "http://localhost:5000";
+let socket;
+let selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);
@@ -52,11 +53,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       socket.emit("join chat", selectedChat._id);
     } catch (error) {
       toast({
-        title: "Error loading messages",
+        title: "Failed to load messages",
         status: "error",
-        duration: 3000,
+        duration: 5000,
         isClosable: true,
-        position: "bottom",
       });
     }
   };
@@ -84,11 +84,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         setMessages([...messages, data]);
       } catch (error) {
         toast({
-          title: "Error sending message",
+          title: "Failed to send the message",
           status: "error",
-          duration: 3000,
+          duration: 5000,
           isClosable: true,
-          position: "bottom",
         });
       }
     }
@@ -97,14 +96,19 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
-    socket.on("connected", () => {});
+
+    socket.on("connected", () => {
+      console.log("✅ Socket connected");
+    });
+
     socket.on("message received", (newMessageReceived) => {
+      console.log("📨 Message received:", newMessageReceived);
+
       if (
         !selectedChatCompare ||
         selectedChatCompare._id !== newMessageReceived.chat._id
       ) {
-        // Notification
-        if (!notification.includes(newMessageReceived)) {
+        if (!notification.some((n) => n._id === newMessageReceived._id)) {
           setNotification([newMessageReceived, ...notification]);
           setFetchAgain(!fetchAgain);
         }
@@ -112,12 +116,15 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         setMessages((prev) => [...prev, newMessageReceived]);
       }
     });
-  });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     fetchMessages();
     selectedChatCompare = selectedChat;
-    // eslint-disable-next-line
   }, [selectedChat]);
 
   return (
@@ -140,7 +147,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               onClick={() => setSelectedChat("")}
               aria-label="Back"
             />
-
             {!selectedChat.isGroupChat ? (
               <>
                 {getSender(user, selectedChat.users)}
@@ -185,7 +191,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <ScrollableChat messages={messages} />
               </div>
             )}
-
             <FormControl onKeyDown={sendMessage} isRequired mt={3}>
               <Input
                 variant="filled"
