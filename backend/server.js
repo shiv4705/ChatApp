@@ -7,7 +7,7 @@ const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddlerware");
 const http = require("http");
 
-dotenv.config();
+dotenv.config(); // ✅ load .env inside backend/
 connectDB();
 
 const app = express();
@@ -19,26 +19,25 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-// Error handling
+// Error Handling
 app.use(notFound);
 app.use(errorHandler);
 
-// ✅ Create HTTP server
+// Create HTTP Server
 const server = http.createServer(app);
 
-// ✅ Initialize socket.io
+// Setup Socket.IO
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:3000", // Match your frontend
+    origin: "http://localhost:3000", // ✅ matches frontend
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
 
-// ✅ Socket.IO Logic
 io.on("connection", (socket) => {
-  console.log("📡 New socket connection");
+  console.log("📡 Socket connected:", socket.id);
 
   socket.on("setup", (userData) => {
     socket.join(userData._id);
@@ -48,7 +47,7 @@ io.on("connection", (socket) => {
 
   socket.on("join chat", (roomId) => {
     socket.join(roomId);
-    console.log("👥 Joined chat room:", roomId);
+    console.log("👥 User joined chat:", roomId);
   });
 
   socket.on("new message", (message) => {
@@ -60,16 +59,16 @@ io.on("connection", (socket) => {
       socket.to(user._id).emit("message received", message);
     });
 
-    console.log("📤 Message emitted to room");
+    console.log("📤 Message sent to users");
   });
 
   socket.on("disconnect", () => {
-    console.log("❌ Socket disconnected");
+    console.log("❌ Socket disconnected:", socket.id);
   });
 });
 
-// ✅ Listen on correct port
+// Start Server
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () =>
-  console.log(`\x1b[36m✅ Backend running on port ${PORT}\x1b[0m`)
+  console.log(`\x1b[36m✅ Server running on port ${PORT}\x1b[0m`)
 );

@@ -1,4 +1,4 @@
-# ChatApp
+# ChatNest
 
 _COMPANY_: CODTECH IT SOLUTIONS
 
@@ -12,7 +12,7 @@ _DURATION_: 6 WEEKS
 
 _MENTOR_: NEELA SANTOSH
 
-ChatApp is a real-time chat application featuring individual and group chats. Built with React, Chakra UI, Node.js, Express, MongoDB, and Socket.io, this project demonstrates real-time communication and group management with a beautiful and responsive interface.
+ChatNest is a real-time chat application featuring individual and group chats. Built with React, Chakra UI, Node.js, Express, MongoDB, and Socket.io, this project demonstrates real-time communication and group management with a beautiful and responsive interface.
 
 ## Features
 

@@ -95,6 +95,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   useEffect(() => {
     socket = io(ENDPOINT);
+    console.log("🧪 Connecting to socket...");
+
+    socket.on("connect_error", (err) =>
+      console.error("⚠️ Socket connect error:", err)
+    );
+
     socket.emit("setup", user);
 
     socket.on("connected", () => {
@@ -102,13 +108,13 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     });
 
     socket.on("message received", (newMessageReceived) => {
-      console.log("📨 Message received:", newMessageReceived);
+      console.log("📨 Message received via socket:", newMessageReceived);
 
       if (
         !selectedChatCompare ||
         selectedChatCompare._id !== newMessageReceived.chat._id
       ) {
-        if (!notification.some((n) => n._id === newMessageReceived._id)) {
+        if (!notification.find((n) => n._id === newMessageReceived._id)) {
           setNotification([newMessageReceived, ...notification]);
           setFetchAgain(!fetchAgain);
         }
